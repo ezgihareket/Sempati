@@ -1,0 +1,82 @@
+﻿@model List<Sempati.Models.Database.hayvanlar>
+@using Microsoft.AspNetCore.Http;
+@{
+int? id = Context.Session.GetInt32("id");
+string admin = Context.Session.GetString("admin");
+}   
+
+    <style>
+        .table1 {
+            color: black;
+        }
+
+        h4 {
+            color: #47a447;
+        }
+
+        .metin {
+            color: darkslategray;
+        }
+
+        .bas {
+            background-color: #85D5DF;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <b style="float:left">
+                    <p>
+                        <h4>HAYVANLAR</h4>
+                    </p>
+                </b>
+                @if(admin == "true"){
+            <a style="float:right" class="btn btn-success" href="/hayvanlar/olustur">Oluştur</a>
+                }
+                <table class="table table-hover">
+                    <thead class="table1">
+                        <tr class="bas">
+                            <th>hayvan_id</th>
+                            <th>ad</th>
+                            <th>cinsiyet</th>
+                            <th>tip</th>
+                            <th>yas</th>
+                            <th>agirlik</th>
+                            <th>renk</th>
+                            <th>tasma_no</th>
+                            <th>kafes_no</th>
+                            @if(admin == "true"){
+                            <th>cins_id</th>
+                            <th>işlemler</th>
+                            }
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model){
+                        <tr class="metin">
+                            <td>@item.hayvan_id</td>
+                            <td>@item.ad</td>
+                            <td>@item.cinsiyet</td>
+                            <td>@item.tip</td>
+                            <td>@item.yas</td>
+                            <td>@item.agirlik</td>
+                            <td>@item.renk</td>
+                            <td>@item.tasma_no</td>
+                            <td>@item.kafes_no</td>
+                            @if(admin == "true"){
+                            <td>@item.cins_id</td>
+                            <th> <a href="/hayvanlar/duzenle?id=@item.hayvan_id"class="btn btn-info">Düzenle</a></th>
+                            }
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>

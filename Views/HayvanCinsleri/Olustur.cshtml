@@ -1,0 +1,100 @@
+﻿<!-- Üst Başlangıç -->
+<div id="ctl00_cph1_UzunAlan1_panel_alan_4">
+
+
+</div>
+<!-- Üst Son -->
+<section style="background-color:#FFC061"
+    class="page-header page-header-center  page-header-primary page-header-color page-header-more-padding page-header-no-title-border">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="font-size:40px;color:#FFF829">
+                    Hayvan Cinsi Kaydet
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" id="girisyap">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="ctl00_cph1_PanelOrta">
+
+
+                <!-- OrtaAlan2 Başlangıç -->
+                <div id="ctl00_cph1_ctl00_panel_orta">
+
+
+                    <!-- ##Blok -->
+
+                    <div class="Blok" id="Uyelik_uyeol">
+                        <div class="Area">
+
+                            <div class="col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                </div>
+                            </div>
+                            <div id="ctl00_cph1_ctl00_ctl00_Panel4">
+
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <form method="post" action="/hayvancinsleri/kaydet" class="FormAlani">
+                                    <input hidden name="cins_id" value="@Model.cins_id" />
+                                        <div class="col-md-12  margin-bottom">
+                                            <div class="col-md-12 margin-bottom">
+                                                Cins Adı (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <input required name="adi"  value="@Model.adi" type="text" maxlength="70" class="form-control">
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                Açıklama (*):
+                                                <div class="clearfix5"></div>
+                                                <b> 
+                                                    <textarea required name="aciklama" class="form-control">@Model.aciklama</textarea>
+                                                </b>
+                                            </div>
+
+                                            <div class="col-md-12 margin-bottom">
+                                                @if(Model.cins_id!=0){
+                                                    <a href="/hayvancinsleri/sil?id=@Model.cins_id" class="btn btn-danger">Sil</a>
+                                                }
+                                                <input type="submit" value="Güncelle" class="btn btn-success">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Blok Alan -->
+                    </div>
+                    <!-- Blok Gölge -->
+                    <div class="Golge">
+                        &nbsp;
+                    </div>
+                    <!-- Blok Gölge -->
+
+
+                </div>
+                <!-- OrtaAlan2 Son -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="ctl00_cph1_orta">
+
+    <!-- OrtaAlan1 Başlangıç -->
+    <div id="ctl00_cph1_ctl01_panel_orta">
+
+
+    </div>
+    <!-- OrtaAlan1 Son -->
+</div>

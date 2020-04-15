@@ -1,0 +1,160 @@
+﻿<!-- Üst Başlangıç -->
+<div id="ctl00_cph1_UzunAlan1_panel_alan_4">
+
+
+</div>
+<!-- Üst Son -->
+<section style="background-color:#FFC061"
+    class="page-header page-header-center  page-header-primary page-header-color page-header-more-padding page-header-no-title-border">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="font-size:40px;color:#FFF829">
+                    Hayvanları Kaydet
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" id="girisyap">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="ctl00_cph1_PanelOrta">
+
+
+                <!-- OrtaAlan2 Başlangıç -->
+                <div id="ctl00_cph1_ctl00_panel_orta">
+
+
+                    <!-- ##Blok -->
+
+                    <div class="Blok" id="Uyelik_uyeol">
+                        <div class="Area">
+
+                            <div class="col-md-12">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+
+                                </div>
+                            </div>
+                            <div id="ctl00_cph1_ctl00_ctl00_Panel4">
+
+
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <form method="post" action="/hayvanlar/kaydet" class="FormAlani">
+                                     <input hidden name="hayvan_id" value="@Model.hayvan_id" />
+                                        <div class="col-md-12  margin-bottom">
+                                            <div class="col-md-12 margin-bottom">
+                                                Hayvan Adı (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <input required name="ad" value="@Model.ad" type="text" maxlength="70" class="form-control">
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                Cinsiyet (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <input required name="cinsiyet" value="@Model.cinsiyet" class="form-control">
+                                                    
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                Tip (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <input required name="tip" value="@Model.tip" class="form-control">
+                                                   
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                Yas (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <input required name="yas" value="@Model.yas" class="form-control">
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                Ağırlık (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <input required name="agirlik" value="@Model.agirlik" class="form-control">
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                Renk (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <input required name="renk" value="@Model.renk" class="form-control">
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                Tasma No (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <input required name="tasma_no" value="@Model.tasma_no" class="form-control">
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                Kafes No (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <input required name="kafes_no" value="@Model.kafes_no" class="form-control">
+                                                </b>
+                                            </div>
+
+                                            <div class="col-md-12 margin-bottom">
+                                                Cins id (*):
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <select name="cins_id" value="@Model.cins_id" class="form-control">
+                                                        @foreach (var item in ViewBag.HayvanCinsleri)
+                                                        {
+                                                            <option value="@item.cins_id">@item.adi</option>
+                                                        }
+                                                    </select>
+                                                </b>
+                                            </div>
+
+                                            <div class="col-md-12 margin-bottom">
+                                                @if(Model.hayvan_id!=0){
+                                                    <a href="/hayvanlar/sil?id=@Model.hayvan_id" class="btn btn-danger">Sil</a>
+                                                }
+                                                <input type="submit" value="Güncelle" class="btn btn-success">
+                                               
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Blok Alan -->
+                    </div>
+                    <!-- Blok Gölge -->
+                    <div class="Golge">
+                        &nbsp;
+                    </div>
+                    <!-- Blok Gölge -->
+
+
+                </div>
+                <!-- OrtaAlan2 Son -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="ctl00_cph1_orta">
+
+    <!-- OrtaAlan1 Başlangıç -->
+    <div id="ctl00_cph1_ctl01_panel_orta">
+
+
+    </div>
+    <!-- OrtaAlan1 Son -->
+</div>

@@ -1,0 +1,67 @@
+﻿@model List<Sempati.Models.Database.hayvan_hastaliklari>
+@using Microsoft.AspNetCore.Http;
+@{
+int? id = Context.Session.GetInt32("id");
+string admin = Context.Session.GetString("admin");
+}   
+    <style>
+        .table1 {
+            color: black;
+        }
+
+        .bas {
+            background-color: #85D5DF;
+        }
+
+        .metin {
+            color: darkslategray;
+        }
+
+        h4 {
+            color: #47a447;
+        }
+    </style>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <b style="float:left">
+                    <p>
+                        <h4>HAYVAN HASTALIKLARI</h4>
+                    </p>
+                </b>
+                @if(admin == "true"){
+            <a style="float:right" class="btn btn-success" href="/hayvanhastaliklari/olustur">Oluştur</a>
+                }
+                <table class="table table-hover">
+
+                    <thead class="table1">
+                        <tr class="bas">
+                            <th>hastalik_id</th>
+                            <th>Hastalik Adi</th>
+                            <th>Bulasici</th>
+                            @if(admin == "true"){
+                            <th>İşlemler</th>
+                            }
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach(var item in Model){
+                        <tr class="metin">
+                            <td>@item.hastalik_id</td>
+                            <td>@item.hastalik_adi</td>
+                            <td>@item.bulasici</td>
+                            @if(admin == "true"){
+                            <th> <a href="/hayvanhastaliklari/duzenle?id=@item.hastalik_id"class="btn btn-info">Düzenle</a></th>
+                            }
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
