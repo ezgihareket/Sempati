@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Sempati.Models;
 using Sempati.Models.Database;
 
@@ -16,11 +17,27 @@ namespace Sempati.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+
+
+        public async Task<IActionResult> Index(string searchString)
         {
-            var list = _db.hayvan_cinsleri.OrderBy(o => o.cins_id).ToList();
-            return View(list);
+
+            var cins = from c in _db.hayvan_cinsleri
+                       select c;
+
+            if (String.IsNullOrEmpty(searchString))
+            {
+                var list = _db.hayvan_cinsleri.OrderBy(o => o.cins_id).ToList();
+                return View(list);
+               
+            }else{
+                 cins = cins.Where(s => s.adi.Contains(searchString));
+                 return View(await cins.ToListAsync());
+            }
+
         }
+
+
         public IActionResult Olustur()
         {
             return View(new hayvan_cinsleri());

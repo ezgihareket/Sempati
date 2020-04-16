@@ -18,6 +18,7 @@ namespace Sempati.Models
         public DbSet<hayvan_yiyecek_tipleri> hayvan_yiyecek_tipleri { get; set; }
 
         public DbSet<hayvanlar> hayvanlar { get; set; }
+        public DbSet<iletisim> iletisim { get; set; }
     }
 
 

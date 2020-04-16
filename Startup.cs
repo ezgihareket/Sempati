@@ -31,6 +31,11 @@ namespace Sempati
             string conn = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<BarinakContext>(options =>
                     options.UseNpgsql(conn));
+
+            IMvcBuilder builder = services.AddRazorPages();
+#if DEBUG
+            builder.AddRazorRuntimeCompilation();
+#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

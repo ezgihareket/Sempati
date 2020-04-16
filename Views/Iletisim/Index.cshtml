@@ -1,12 +1,11 @@
 ﻿<div role="main" class="main">
 
     <!-- Üst Başlangıç -->
-    <div id="ctl00_cph1_UzunAlan_panel_alan_4">
+    <!-- <div id="ctl00_cph1_UzunAlan_panel_alan_4">
 
-    </div>
+    </div> -->
     <!-- Üst Son -->
-    <section style="background-color:#24A3EC"
-        class="page-header page-header-center  page-header-primary page-header-color page-header-more-padding page-header-no-title-border">
+    <section style="background-color:#24A3EC" class="page-header page-header-center  page-header-primary page-header-color page-header-more-padding page-header-no-title-border">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -19,7 +18,6 @@
     </section>
 
     <div class="container" id="iletisim">
-
         <div class="row">
             <div class="col-md-12">
                 <div id="ctl00_cph1_PanelOrta">
@@ -28,55 +26,47 @@
                     <div id="ctl00_cph1_ctl00_panel_orta">
 
                         <div class="row">
-                            <div class="col-md-6 appear-animation fadeIn appear-animation-visible"
-                                data-appear-animation="fadeIn">
+                            <div class="col-md-6 appear-animation fadeIn appear-animation-visible" data-appear-animation="fadeIn">
 
                                 <h2 class="mb-sm mt-sm">İLETİŞİM FORMU</h2>
-                                <div id="ctl00_cph1_ctl00_ctl00_Panel4"
-                                    onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_cph1_ctl00_ctl00_Button1')">
+                                <form method="post" action="/iletisim/kaydet" class="FormAlani">
+                                    <div class="col-md-12  margin-bottom">
+                                        <div class="col-md-12 margin-bottom">
+                                            Adı Soyadı (*):
+                                            <div class="clearfix5"></div>
+                                            <b>
+                                                <input required name="isim" type="text" maxlength="70"
+                                                    class="form-control">
+                                            </b>
+                                        </div>
+                                        <div class="col-md-12 margin-bottom">
+                                            Telefon:
+                                            <div class="clearfix5"></div>
+                                            <b>
+                                                <input required name="telefon" type="text" maxlength="70"
+                                                    class="form-control">
+                                            </b>
+                                        </div>
 
-                                    <div class="FormAlani form-group input-group-lg">
-                                        <label>
-                                            Ad-Soyad</label>
-                                        <span id="ctl00_cph1_ctl00_ctl00_RequiredFieldValidator1"
-                                            style="display:inline-block;color:Red;border-style:None;display:none;">*</span>
-                                        <input name="ctl00$cph1$ctl00$ctl00$txt_ad" type="text"
-                                            id="ctl00_cph1_ctl00_ctl00_txt_ad" class="form-control">
-                                        <div class="clearfix5"></div>
-                                        <label>
-                                            Telefon</label>
-                                        <span id="ctl00_cph1_ctl00_ctl00_RequiredFieldValidator2"
-                                            style="display:inline-block;color:Red;border-style:None;display:none;">*</span>
-                                        <input name="ctl00$cph1$ctl00$ctl00$txt_tel" type="text"
-                                            id="ctl00_cph1_ctl00_ctl00_txt_tel" class="form-control">
-                                        <div class="clearfix5"></div>
-                                        
-                                        <label>
-                                            E-Mail</label>
-                                        <span id="ctl00_cph1_ctl00_ctl00_RegularExpressionValidator1"
-                                            style="display:inline-block;color:Red;border-style:None;width:212px;display:none;">*</span>
-                                        <span id="ctl00_cph1_ctl00_ctl00_RequiredFieldValidator3"
-                                            style="display:inline-block;color:Red;border-style:None;display:none;">*</span>
-                                        <input name="ctl00$cph1$ctl00$ctl00$txt_email" type="text"
-                                            id="ctl00_cph1_ctl00_ctl00_txt_email" class="form-control">
-                                        <div class="clearfix5"></div>
-                                        <label>
-                                            Mesaj</label>
-                                        <span id="ctl00_cph1_ctl00_ctl00_RequiredFieldValidator5"
-                                            style="color:Red;display:none;">*</span>
-                                        <textarea name="ctl00$cph1$ctl00$ctl00$txt_mesaj" rows="2" cols="20"
-                                            id="ctl00_cph1_ctl00_ctl00_txt_mesaj" class="form-control"
-                                            style="height:100px;"></textarea>
-                                        <div class="clearfix5"></div>
-                                       
-                                        <input type="submit" name="ctl00$cph1$ctl00$ctl00$Button1" value="Gönder"
-                                            id="ctl00_cph1_ctl00_ctl00_Button1" class="button_all btn btn-primary">
+                                        <div class="col-md-12 margin-bottom">
+                                            E-Mail (*):
+                                            <div class="clearfix5"></div>
+                                            <input required name="email" type="text" maxlength="70" class="form-control">
+                                        </div>
+
+                                        <div class="col-md-12 margin-bottom">
+                                            Mesaj (*):
+                                            <textarea required name="mesaj" type="textarea" maxlength="70" class="form-control"></textarea>
+                                        </div>
+
+                                        <div class="col-md-12 margin-bottom">
+                                            <input type="submit" value="Gönder" class="btn btn-primary">
+                                        </div>
                                     </div>
-
-                                </div>
+                                </form>
                             </div>
-                            <div class="col-md-6 appear-animation fadeIn appear-animation-visible"
-                                data-appear-animation="fadeIn">
+
+                            <div class="col-md-6 appear-animation fadeIn appear-animation-visible" data-appear-animation="fadeIn">
 
                                 <div class="IletisimBilgi">
                                     <h2 class="mb-sm mt-sm">İLETİŞİM BİLGİLERİ</h2>
@@ -97,14 +87,8 @@
 
         </div>
     </div>
-
-    <div id="ctl00_cph1_orta">
-
-        <!-- OrtaAlan1 Başlangıç -->
-        <div id="ctl00_cph1_ctl01_panel_orta">
-
-        </div>
+    <!-- <div id="ctl00_cph1_orta">
         <!-- OrtaAlan1 Son -->
-    </div>
+</div>
 
 </div>

@@ -21,18 +21,12 @@ namespace Sempati.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Kaydet(Kullanici model)
+        public IActionResult Kaydet(iletisim model)
         {
-            try
-            {
-                _db.kullanici.Add(model);//kullaniciyi kaydet
+                _db.iletisim.Add(model);
                 _db.SaveChanges();//yapılan değişiklikleri kaydet
                 return Redirect("/iletisim");
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
+            
         }
     }
 }
