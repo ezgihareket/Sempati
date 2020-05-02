@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ezgih\\Desktop\\Sempati\\Sempati.csproj": {}
+    "C:\\Users\\ezgih\\Desktop\\Sempati\\Sempati.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ezgih\\Desktop\\Sempati\\Sempati.csproj": {
+    "C:\\Users\\ezgih\\Desktop\\Sempati\\Sempati.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ezgih\\Desktop\\Sempati\\Sempati.csproj",
+        "projectUniqueName": "C:\\Users\\ezgih\\Desktop\\Sempati\\Sempati.csproj",
         "projectName": "Sempati",
-        "projectPath": "c:\\Users\\ezgih\\Desktop\\Sempati\\Sempati.csproj",
+        "projectPath": "C:\\Users\\ezgih\\Desktop\\Sempati\\Sempati.csproj",
         "packagesPath": "C:\\Users\\ezgih\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ezgih\\Desktop\\Sempati\\obj\\",
+        "outputPath": "C:\\Users\\ezgih\\Desktop\\Sempati\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

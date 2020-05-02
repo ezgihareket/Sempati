@@ -20,12 +20,14 @@ namespace Sempati.Controllers
         {
             return View();
         }
+
+        //Veritabanında ki iletişim tablosuna girilen verileri kaydeden methot
         [HttpPost]
         public IActionResult Kaydet(iletisim model)
         {
                 _db.iletisim.Add(model);
                 _db.SaveChanges();//yapılan değişiklikleri kaydet
-                return Redirect("/iletisim");
+                return Redirect("/iletisim");//İletişim sayfasına yönlendir
             
         }
     }

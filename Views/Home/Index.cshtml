@@ -2,17 +2,15 @@
 
 <!-- Üst Başlangıç -->
 <div id="ctl00_cph1_UzunAlan_panel_alan_4">
-
     <div class="slider-container rev_slider_wrapper">
         <div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider data-plugin-options='{"delay": 5000, "gridwidth": 1170, "gridheight": 500  }'>
             <ul>
-
                 <li data-transition="fade">
                     <img data-lazyload="./site_document/anim_img/stretched-1920-1080-716364.jpg" src="./site_document/anim_img/stretched-1920-1080-716364.jpg" alt="Slide" alt="Slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
 
                     <div class="tp-caption main-label splitted" data-voffset="-25" style="color:#FFFFFF" data-whitespace="nowrap" data-start="500" data-y="center" data-splitin="none" data-x="center" data-transform_in="y:[200%];opacity:0;s:500;" data-transform_out="opacity:0;s:300;s:300;">
-                        Barınak Dostlarımız</div>
-
+                        Barınak Dostlarımız
+                    </div>
                 </li>
 
 
@@ -20,17 +18,16 @@
                     <img data-lazyload="./site_document/anim_img/118655.jpg" src="./site_document/anim_img/118655.jpg" alt="Slide" alt="Slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
 
                     <div class="tp-caption main-label splitted" data-voffset="-25" style="color:#FFFFFF" data-whitespace="nowrap" data-start="500" data-y="center" data-splitin="none" data-x="center" data-transform_in="y:[200%];opacity:0;s:500;" data-transform_out="opacity:0;s:300;s:300;">
-                        Barınak Dostlarımız</div>
-
+                        Barınak Dostlarımız
+                    </div>
                 </li>
-
 
                 <li data-transition="fade">
                     <img data-lazyload="./site_document/anim_img/stretched-1920-1080-735510.jpg" src="./site_document/anim_img/stretched-1920-1080-735510.jpg" alt="Slide" alt="Slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
 
                     <div class="tp-caption main-label splitted" data-voffset="-25" style="color:#FFFFFF" data-whitespace="nowrap" data-start="500" data-y="center" data-splitin="none" data-x="center" data-transform_in="y:[200%];opacity:0;s:500;" data-transform_out="opacity:0;s:300;s:300;">
-                        Barınak Dostlarımız</div>
-
+                        Barınak Dostlarımız
+                    </div>
                 </li>
 
 
@@ -39,22 +36,21 @@
                         data-bgrepeat="no-repeat" class="rev-slidebg">
 
                     <div class="tp-caption main-label splitted" data-voffset="-25" style="color:#FFFFFF" data-whitespace="nowrap" data-start="500" data-y="center" data-splitin="none" data-x="center" data-transform_in="y:[200%];opacity:0;s:500;" data-transform_out="opacity:0;s:300;s:300;">
-                        Barınak Dostlarımız</div>
-
+                        Barınak Dostlarımız
+                    </div>
                 </li>
-
             </ul>
         </div>
     </div>
-
-
 </div>
 <!-- Üst Son -->
 
+
+
 <!-- OrtaAlan1 Başlangıç -->
 <div id="ctl00_cph1_OrtaAlan_panel_orta">
-
     <section class="sec_maincat con_mc_5 ui_mc_326 parallax section section-parallax section-center mb-none" data-stellar-background-ratio="0.5" style="background-color: rgb(255, 255, 255); background-position: 0% -115.5px;">
+
         <div class="container">
             <div class="shop">
                 <div class="row" id="tablolar">
@@ -63,32 +59,60 @@
                             TABLOLAR
                         </h2>
                         <div class="row">
-
                             <ul class="products product-thumb-info-list">
                                 <li class="blid_296 col-md-3 col-sm-6 col-xs-12 product">
-
+                                    @if(!id.HasValue){
                                     <a onclick=" Swal.fire({
                                         icon: 'error',
-                                        title: 'Oops...',
-                                        text: 'Üye olmanız lazım!'
+                                        title: 'TABLOLARI GÖRMEK İÇİN LÜTEN ÜYE OLUN',
+                                        text: 'Sempati'
                                     })" title="HAYVANLAR">
-
                                         <span class="img-circle thumb-info thumb-info-centered-info thumb-info-hide-info-hover">
                                             <span class="img-circle thumb-info-wrapper">
                                                 <img alt="HAYVANLAR" class="img-responsive img-circle"
                                                     src="/site_document/sayfa_img/5NYLPLPAJ_resim_12_12_2017_13_b.jpg">
                                                 <span class="thumb-info-title">
+                                                    <span class="thumb-info-inner">HAYVANLAR</span>
+                                        </span>
+                                        </span>
+                                        </span>
+                                    </a>
+                                    }else{
+                                    <a href="/hayvanlar" title="HAYVANLAR">
+                                        <span class="img-circle thumb-info thumb-info-centered-info thumb-info-hide-info-hover">
+                                            <span class="img-circle thumb-info-wrapper">
+                                                <img alt="HAYVANLAR" class="img-responsive img-circle"
+                                                    src="/site_document/sayfa_img/5NYLPLPAJ_resim_12_12_2017_13_b.jpg">
+                                                <span class="thumb-info-title">
+                                                    <span class="thumb-info-inner">HAYVANLAR</span>
+                                        </span>
+                                        </span>
+                                        </span>
+                                    </a>
+                                    }
+                                </li>
+
+                                <li class="blid_295 col-md-3 col-sm-6 col-xs-12 product">
+                                    @if(!id.HasValue){
+                                    <a onclick=" Swal.fire({
+                                            icon: 'error',
+                                            title: 'TABLOLARI GÖRMEK İÇİN LÜTEN ÜYE OLUN',
+                                            text: 'Sempati'
+                                        })" title="HAYVAN CINSLERI">
+
+                                        <span class="img-circle thumb-info thumb-info-centered-info thumb-info-hide-info-hover">
+                                            <span class="img-circle thumb-info-wrapper">
+                                                <img alt="HAYVAN CINSLERI" class="img-responsive img-circle"
+                                                    src="/site_document/sayfa_img/283_2_500x500.jpg">
+                                                <span class="thumb-info-title">
                                                     <span class="thumb-info-inner">
-                                                        HAYVANLAR
+                                                        HAYVAN CINSLERI
                                                     </span>
                                         </span>
                                         </span>
                                         </span>
                                     </a>
-
-                                </li>
-
-                                <li class="blid_295 col-md-3 col-sm-6 col-xs-12 product">
+                                    }else{
                                     <a href="/hayvancinsleri" title="HAYVAN CINSLERI">
                                         <span class="img-circle thumb-info thumb-info-centered-info thumb-info-hide-info-hover">
                                             <span class="img-circle thumb-info-wrapper">
@@ -102,9 +126,30 @@
                                         </span>
                                         </span>
                                     </a>
+                                    }
                                 </li>
 
                                 <li class="blid_294 col-md-3 col-sm-6 col-xs-12 product">
+                                    @if(!id.HasValue){
+                                    <a onclick=" Swal.fire({
+                                            icon: 'error',
+                                            title: 'TABLOLARI GÖRMEK İÇİN LÜTEN ÜYE OLUN',
+                                            text: 'Sempati'
+                                        })" title="HAYVAN HASTALIKLARI">
+
+                                        <span class="img-circle thumb-info thumb-info-centered-info thumb-info-hide-info-hover">
+                                            <span class="img-circle thumb-info-wrapper">
+                                                <img alt="HAYVAN HASTALIKLARI" class="img-responsive img-circle"
+                                                    src="/site_document/sayfa_img/T39AP7ITK_resim_12_12_2017_13_b.jpg">
+                                                <span class="thumb-info-title">
+                                                    <span class="thumb-info-inner">
+                                                        HAYVAN HASTALIKLARI
+                                                    </span>
+                                        </span>
+                                        </span>
+                                        </span>
+                                    </a>
+                                    }else{
                                     <a href="/hayvanhastaliklari" title="HAYVAN HASTALIKLARI">
                                         <span class="img-circle thumb-info thumb-info-centered-info thumb-info-hide-info-hover">
                                             <span class="img-circle thumb-info-wrapper">
@@ -118,9 +163,30 @@
                                         </span>
                                         </span>
                                     </a>
+                                    }
                                 </li>
 
                                 <li class="blid_293 col-md-3 col-sm-6 col-xs-12 product">
+                                    @if(!id.HasValue){
+                                    <a onclick=" Swal.fire({
+                                            icon: 'error',
+                                            title: 'TABLOLARI GÖRMEK İÇİN LÜTEN ÜYE OLUN',
+                                            text: 'Sempati'
+                                        })" title="HAYVAN YIYECEK TIPLERI">
+
+                                        <span class="img-circle thumb-info thumb-info-centered-info thumb-info-hide-info-hover">
+                                            <span class="img-circle thumb-info-wrapper">
+                                                <img alt="HAYVAN YIYECEK TIPLERI" class="img-responsive img-circle"
+                                                    src="/site_document/sayfa_img/kopek-mamasi-markalari_500x500.jpg">
+                                                <span class="thumb-info-title">
+                                                    <span class="thumb-info-inner">
+                                                        HAYVAN YIYECEK TIPLERI
+                                                    </span>
+                                        </span>
+                                        </span>
+                                        </span>
+                                    </a>
+                                    }else{
                                     <a href="/hayvanyiyecektipleri" title="HAYVAN YIYECEK TIPLERI">
                                         <span class="img-circle thumb-info thumb-info-centered-info thumb-info-hide-info-hover">
                                             <span class="img-circle thumb-info-wrapper">
@@ -134,6 +200,7 @@
                                         </span>
                                         </span>
                                     </a>
+                                    }
                                 </li>
                             </ul>
                         </div>
@@ -144,10 +211,10 @@
     </section>
 
     <!-- ##Kutu Blok -->
-    <section class="sec_mainbox con_mb_15 ui_mb_324 parallax section section-parallax mb-none" style="background-image: url(/site_document/kutuResim/imageedit_1_2011567512.jpg;); background-position: 0% -47.25px;">
+    <section style="background-image: url(/site_document/kutuResim/thumb2-dachshund-sleeping-dog-pets-dogs-puppy.jpg);">
         <div class="container">
             <div class="row" id="galeri">
-                <div class="col-md-5 appear-animation fadeIn appear-animation-visible" data-appear-animation="fadeIn">
+                <div class="col-md-5">
                     <h2 style="color:#000000">
                         Galeri
                     </h2>
@@ -163,53 +230,52 @@
                             <li class="blid_113 col-md-4 col-xs-12" style="position: absolute; left: 0px; top: 0px;">
                                 <a title="" href="/site_document/kutuResim/icon_QB112129.jpg">
                                     <span class="img-thumbnail mb-none">
-                                        <img class="img-responsive" src="/site_document/kutuResim/icon_QB112129.jpg"
-                                            alt="">
+                                        <img class="img-responsive" src="/site_document/kutuResim/icon_QB112129.jpg">
                                     </span>
                                 </a>
                             </li>
 
                             <li class="blid_112 col-md-4 col-xs-12" style="position: absolute; left: 227px; top: 0px;">
-                                <a title="" href="/site_document/kutuResim/icon_KNZ12129.jpg">
+                                <a title="" href="/site_document/kutuResim/pexels-photo-3361739_500x500.jpg">
                                     <span class="img-thumbnail mb-none">
-                                        <img class="img-responsive" src="/site_document/kutuResim/icon_KNZ12129.jpg"
-                                            alt="">
+                                        <img class="img-responsive"
+                                            src="/site_document/kutuResim/pexels-photo-3361739_500x500.jpg">
                                     </span>
                                 </a>
                             </li>
 
                             <li class="blid_111 col-md-4 col-xs-12" style="position: absolute; left: 455px; top: 0px;">
-                                <a title="" href="/site_document/kutuResim/icon_FL312129.jpg">
+                                <a title="" href="/site_document/kutuResim/pexels-photo-1108099_500x500.jpg">
                                     <span class="img-thumbnail mb-none">
-                                        <img class="img-responsive" src="/site_document/kutuResim/icon_FL312129.jpg"
-                                            alt="">
+                                        <img class="img-responsive"
+                                            src="/site_document/kutuResim/pexels-photo-1108099_500x500.jpg">
                                     </span>
                                 </a>
                             </li>
 
                             <li class="blid_110 col-md-4 col-xs-12" style="position: absolute; left: 0px; top: 197px;">
-                                <a title="" href="/site_document/kutuResim/icon_WRN12129.jpg">
+                                <a title="" href="/site_document/kutuResim/bakan-pakdemirli-acikladi-hayvanlar-hakkinda-flas-karar-S3H_500x500.jpg">
                                     <span class="img-thumbnail mb-none">
-                                        <img class="img-responsive" src="/site_document/kutuResim/icon_WRN12129.jpg"
-                                            alt="">
+                                        <img class="img-responsive"
+                                            src="/site_document/kutuResim/bakan-pakdemirli-acikladi-hayvanlar-hakkinda-flas-karar-S3H_500x500.jpg">
                                     </span>
                                 </a>
                             </li>
 
                             <li class="blid_114 col-md-4 col-xs-12" style="position: absolute; left: 227px; top: 197px;">
-                                <a title="" href="/site_document/kutuResim/icon_VIN12129.jpg">
+                                <a title="" href="/site_document/kutuResim/cat-pet-animal-domestic-104827_500x500.jpg">
                                     <span class="img-thumbnail mb-none">
-                                        <img class="img-responsive" src="/site_document/kutuResim/icon_VIN12129.jpg"
-                                            alt="">
+                                        <img class="img-responsive"
+                                            src="/site_document/kutuResim/cat-pet-animal-domestic-104827_500x500.jpg">
                                     </span>
                                 </a>
                             </li>
 
                             <li class="blid_115 col-md-4 col-xs-12" style="position: absolute; left: 455px; top: 197px;">
-                                <a title="" href="/site_document/kutuResim/icon_ZZK12129.jpg">
+                                <a title="" href="/site_document/kutuResim/kitty-cat-kitten-pet-45201.jpeg">
                                     <span class="img-thumbnail mb-none">
-                                        <img class="img-responsive" src="/site_document/kutuResim/icon_ZZK12129.jpg"
-                                            alt="">
+                                        <img class="img-responsive"
+                                            src="/site_document/kutuResim/kitty-cat-kitten-pet-45201.jpeg">
                                     </span>
                                 </a>
                             </li>
@@ -223,7 +289,7 @@
         <div class="container">
             <div class="shop">
                 <div class="row">
-                    <div data-appear-animation="fadeInUpBig" class="col-md-12 appear-animation fadeInUpBig appear-animation-visible">
+                    <div data-appear-animation="fadeInUpBig" class="col-md-12">
                         <h2 style="color:#212121">
                             Haberler &amp; Duyurular
                         </h2>
@@ -284,7 +350,7 @@
             </div>
             <div class="row">
                 <div data-appear-animation="fadeInUpBig" class="col-md-12 center appear-animation">
-                    <a class="btn btn-borders btn-primary btn-lg oval-button" href="/haberler-duyurular/c/266">
+                    <a class="btn btn-borders btn-primary btn-lg oval-button" href="/#">
                         Tümünü Göster
                     </a>
                 </div>
@@ -294,18 +360,15 @@
 
     <!-- ##Blok -->
     <section class="statik ui_st_325 parallax section section-parallax section-center mb-none" data-stellar-background-ratio="0.5" style="background-image: url(&quot;/site_document/kutuResim/block-29320178XUTC.jpg&quot;); background-position: 0% -918.25px;">
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
-                <div class="col-md-12 appear-animation" data-appear-animation="fadeIn">
-                    <h2 style="color:#FFFFFF">
-                        Hızlı İletişim
-                    </h2>
+                <div class="col-md-12" >
                     <div class="row">
-                        <div class="col-md-12 appear-animation" data-appear-animation="fadeIn">
+                        <div class="col-md-12">
                             <p>
-                                <script src="/formExport.aspx?formId=14&amp;pozisyon=3" id="dinamikForm"></script>
-                                <script language="JavaScript">
-                                    var formResize = function(event) {
+                                <script src="/formExport.aspx?formId=14&amp;pozisyon=3" id="dinamikForm"></script> -->
+        <!-- <script language="JavaScript">
+                                    var formResize = function (event) {
                                         var formId_1 = document.getElementById('formId_' + event.data.split(':')[1]);
                                         if (formId_1) {
                                             formId_1.style.height = event.data.split(':')[0] + 'px';
@@ -317,23 +380,22 @@
                                         window.attachEvent('onmessage', formResize);
                                     }
                                 </script>
-                                <iframe src="https://hemencdn.com/dynamicForm/render.php?Param=14&amp;Param2=90bcf7b2149e9d29c9328f719856dc1a&amp;Param3=76708&amp;Param4=3&amp;Param5=000000&amp;Param6=Open Sans&amp;Param7=15" frameborder="0" width="100%" scrolling="no" id="formId_76708"
-                                    style="height: 40px;"></iframe></p>
-
+                                <iframe
+                                    src="https://hemencdn.com/dynamicForm/render.php?Param=14&amp;Param2=90bcf7b2149e9d29c9328f719856dc1a&amp;Param3=76708&amp;Param4=3&amp;Param5=000000&amp;Param6=Open Sans&amp;Param7=15"
+                                    frameborder="0" width="100%" scrolling="no" id="formId_76708"
+                                    style="height: 40px;">
+                                </iframe>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </section>
-
-
-    <!-- ##Kutu Blok -->
+    <!-- ##Blok Son -->
 
 </div>
-
-</div>
-<!-- OrtaAlan1 Son -->
+<!-- OrtaAlan Son -->
 
 @section Scripts{
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

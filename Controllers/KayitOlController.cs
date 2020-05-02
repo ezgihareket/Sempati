@@ -29,15 +29,20 @@ namespace Sempati.Controllers
             _db.SaveChanges();//yapılan değişiklikleri kaydet
             return Redirect("/Barinak");// barinak adresine yönlendir.
         }
+
+        //Kayıt olduktan sonra sisteme giriş yapmak için kullanılan fonksiyon
         public async Task<IActionResult> GirisYap(string email, string sifre)
         {
+            //Girilen emailve şifre ile kullanıcının email'i ve şifresi aynı ise Kullanıcı vardır
             var kullanici = await _db.kullanici.FirstOrDefaultAsync(w => w.email == email && w.sifre == sifre);
+            //Eşit değillerse kullanıcı null döner
             if (kullanici == null)
             {
                 return Redirect("/");
             }
             HttpContext.Session.SetInt32("id", kullanici.kullanici_id);
             HttpContext.Session.SetString("kullanici_adi", kullanici.ad);
+            //Girilien kullanıcı admin ise true değil ise false döner
             if (kullanici.admin)
             {
                 HttpContext.Session.SetString("admin", "true");
@@ -48,10 +53,12 @@ namespace Sempati.Controllers
             }
             return Redirect("/");
         }
+
+        //Giriş yaptıktan sonra istenildiğinde Çıkış yapmak için kullanılan method
         public IActionResult cikisYap()
         {
             HttpContext.Session.Clear();
-            return Redirect("/");
+            return Redirect("/");//Anasayfaya yönlendirir
         }
     }
 }

@@ -7,6 +7,5 @@ namespace Sempati.Models.Database
         public string adres { get; set; }
         public int telefon { get; set; }
         public string aciklama { get; set; }
-        public string resim { get; set; }
     }
 }

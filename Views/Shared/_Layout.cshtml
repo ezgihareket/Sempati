@@ -1,12 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Http; @{ int? id = Context.Session.GetInt32("id"); }
-
 <!DOCTYPE html>
-<html id="ctl00_tagHtml" xmlns="https://www.w3.org/1999/xhtml">
 
 <head id="ctl00_Head1">
     <meta name="keywords" content="site," />
     <meta name="description" content="Site Açıklaması" />
-    <meta property="og:image" content="http://barinakplatinum.platinum.webdeneme.com/site_document/icon_img/pwpMLyJV_400x400.jpg" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -24,13 +21,11 @@
     <script src="https://hemencdn.com/interface/platinum/js/modernizr.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
 
-
-
     <link rel="stylesheet" href="~/style.css?Tema=">
 
     <style>
         #formara {
-            position: absolute;
+            position: relative;
         }
     </style>
 
@@ -40,56 +35,28 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">Hidden brand</a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav> -->
     <div>
         <div class="body">
-
             <header id="header" class="headertheme_11 header-narrow" data-plugin-options='{"stickyEnabled": false, "stickyEnableOnBoxed": false, "stickyEnableOnMobile": true, "stickyStartAt": 0, "stickySetTop": "-0", "stickyChangeLogo": true}'>
-
                 <div class="header-body">
-
                     <div class="header-top htop_11" style="background-color: #85D5DF; color: #FFFFFF">
-                       
                         <div class="container">
 
+                            @if(id.HasValue){
+                            <form id="formara" asp-controller="hayvancinsleri" asp-action="Index" method="get">
+                                <div class="col-md-11">
+                                    <input class="form-control mr-sm-2" name="SearchString" type="search" placeholder="Ara" aria-label="Search">
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Ara</button>
+                                </div>
+                            </form>
+                            } else{
                             <div class="header-row membership">
-                                  @if(id.HasValue){
-                                      <div class="Ust_Uyelik">
-                                      <div class="col-md-5">
-                        <form id="formara" asp-controller="hayvancinsleri" asp-action="Index" method="get">
-                            <input class="form-control mr-sm-2" name="SearchString" type="search" placeholder="Ara" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
-                        </form>
-                        </div>
-                        </div>
-                        }else{
                                 <div id="ctl00_Header_ctl02_UyeGiris" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_Header_ctl02_Giris&#39;)">
+
                                     <form method="POST" action="/kayitol/girisyap">
-
                                         <div class="Ust_Uyelik" id="Uyelik_logo_yani">
-
                                             <div class="col-md-12">
                                                 <div class="col-md-1">
                                                 </div>
@@ -110,8 +77,9 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div>}
+                                </div>
                             </div>
+                            }
                         </div>
                     </div>
                     <div id="header" class="headtheme_11 header-container container">
@@ -122,22 +90,23 @@
                                         <tbody>
                                             <tr>
                                                 <td><img alt="Logo" src="~/site_document/files/resim/logo.png" style="height: 80px; margin-right: 10px; width: 80px;" /></td>
-                                                <td><span style="font-size:24px;"><span
-                                                            style="color:#1C2125;">SemPati</span></span>
+                                                <td>
+                                                    <span style="font-size:24px;"><span
+                                                            style="color:#1C2125;">SemPati</span>
+                                                    </span>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
 
                             <div class="header-column">
                                 <div class="header-row">
                                     <div class="header-nav">
-                                        <button class="btn header-btn-collapse-nav" type="button" data-toggle="collapse" data-target=".header-nav-main">
+                                        @* <button class="btn header-btn-collapse-nav" type="button" data-toggle="collapse" data-target=".header-nav-main">
                                             <i class="fa fa-bars"></i>
-                                        </button>
+                                        </button> *@
                                         <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
                                             <nav>
                                                 <ul class="nav nav-pills" id="mainNav">
@@ -165,6 +134,9 @@
                                                             <li>
                                                                 <a href="/hayvanyiyecektipleri" id="hayvanyiyecektipleri">Hayvan Yiyecek Tipleri</a>
                                                             </li>
+                                                            <li>
+                                                                <a href="/stok" id="stok">Stok</a>
+                                                            </li>
 
                                                         </ul>
                                                         }
@@ -177,10 +149,14 @@
                                                     <li>
                                                         <a href="/iletisim" id="mn_3" class="menu_tur_11">Iletişim</a>
                                                     </li>
+
                                                     @if(id.HasValue){
+                                                    <li>
+                                                        <a href="/stok" id="mn_289" class="menu_tur_11">Stok</a>
+                                                    </li>
                                                     <li class="dropdown">
-                                                        <a href="/sahiplendirme/c/291" id="mn_291" class="dropdown-toggle menu_tur_11"><span
-                                                                data-hover="Sahiplendirme">Hesap</span></a>
+                                                        <a href="/#" id="mn_291" class="dropdown-toggle menu_tur_11"><span
+                                                                data-hover="Hesap">Hesap</span></a>
                                                         <ul class="dropdown-menu">
                                                             <li>
                                                                 <a id="mn_293">@Context.Session.GetString("kullanici_adi")</a>
@@ -212,56 +188,28 @@
                     <div class="row">
                         <div id="ctl00_AltAlan_pnaltAlt">
 
-
                             <!-- ##Blok -->
                             <div class="col-md-4">
-
                                 <div class="Blok" data-appear-animation="fadeInLeft" id="statik_254">
-                                    <!-- Blok Başlık -->
                                     <h4 class="heading-primary">Hakkımızda</h4>
                                     <div class="Area">
                                         <p>Tecrübeli teknik kadromuz ile güvenilir ve verilmi ekip olma anlayışıyla; müşteri memnuniyeti ve kalite ile birlikte zamanındalık ilkerinden ödün vermeden ülke ve dünya standartlarına uygun olarak hizmet sunmaktayız.</p>
-
                                     </div>
                                 </div>
-
                             </div>
-                            <!-- ##Blok -->
-                            <!-- 
-                            <div class="col-md-4">
-
-                                
-                                <div class="Blok" data-appear-animation="fadeInUp" id="statik_252">
-                                   --- Blok Başlık ---
-                                    <h4 class="heading-primary">Facebook</h4>
-                                    <div class="Area">
-                                        <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="false">
-                                            <div class="fb-xfbml-parse-ignore">
-                                                <blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">https://www.facebook.com/facebook</a></blockquote>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-
-                            </div>
-                            -->
-                            <!-- ##Blok -->
                             <div class="col-md-4">
 
                                 <div class="Blok" data-appear-animation="fadeInRight" id="statik_288">
                                     <!-- Blok Başlık -->
                                     <h4 class="heading-primary">İletişim</h4>
                                     <div class="Area">
-                                        <p>Adres: Atatürk Caddesi - Malatya</p>
+                                        <p>Adres: İnönü Üniversitesi - Malatya</p>
 
                                         <p>Telefon: 0212 444 0 444</p>
 
                                         <p>E-Mail: ezgihareket@gmail.com</p>
-
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -271,11 +219,6 @@
                         <div class="row" style="display: block !important; visibility: visible !important;">
                             <div class="col-md-6" style="display: block !important; visibility: visible !important;">
                                 2020-Web Sitesi
-                            </div>
-                            <div class="col-md-6 pull-right" style="display: block !important; visibility: visible !important;">
-                                <div class="pull-right" style="display: block !important; visibility: visible !important;">
-                                    <div class="bilgikurumsal GenislikSub"></div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -287,7 +230,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <script src="https://hemencdn.com/interface/platinum/js/main.js"></script>
- @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 
 </html>

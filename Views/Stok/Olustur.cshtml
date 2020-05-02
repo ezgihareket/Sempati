@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 style="font-size:40px;color:#FFF829">
-                    Hayvan Yiyecek Tipleri Kaydet
+                    STOK GUNCELLE
                 </h1>
             </div>
         </div>
@@ -38,22 +38,37 @@
                             <div id="ctl00_cph1_ctl00_ctl00_Panel4">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8 ">
-                                    <form method="post" action="/hayvanyiyecektipleri/kaydet" class="FormAlani">
-                                    <input hidden name="yiyecek_id" value="@Model.yiyecek_id" />
+                                    <form method="post" action="/stok/kaydet" class="FormAlani">
+                                    <input hidden name="stok_id" value="@Model.stok_id" />
                                         <div class="col-md-12  margin-bottom">
-
                                             <div class="col-md-12 margin-bottom">
-                                                Açıklama (*):
+                                                Adet:
                                                 <div class="clearfix5"></div>
                                                 <b>
-                                                    <textarea required name="aciklama" class="form-control">@Model.aciklama</textarea>
+                                                    <textarea required name="adet" class="form-control">@Model.adet</textarea>
                                                 </b>
                                             </div>
-
                                             <div class="col-md-12 margin-bottom">
-                                                @if(Model.yiyecek_id!=0){
-                                                    <a href="/hayvanyiyecektipleri/sil?id=@Model.yiyecek_id" class="btn btn-danger">Sil</a>
-                                                }
+                                                Yiyecek:
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <textarea required name="yiyecek" class="form-control">@Model.yiyecek</textarea>
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                Yiyecek ID:
+                                                <div class="clearfix5"></div>
+                                                <b>
+                                                    <select name="yiyecek_id" value="@Model.yiyecek_id" class="form-control">
+                                                        @foreach (var item in ViewBag.HayvanYiyecekTipleri)
+                                                        {
+                                                            <option value="@item.yiyecek_id">@item.aciklama, @item.yiyecek_id</option>
+                                                        }
+                                                    </select>
+                                                </b>
+                                            </div>
+                                            <div class="col-md-12 margin-bottom">
+                                                    <a href="/stok/sil?id=@Model.stok_id" class="btn btn-danger">Sil</a>
                                                 <input type="submit" value="Oluştur" class="btn btn-success">
                                             </div>
                                         </div>

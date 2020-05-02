@@ -20551,6 +20551,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\ezgih\\Desktop\\Sempati\\Views\\Stok\\Index.cshtml",
+      "TargetPath": "Views\\Stok\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\ezgih\\Desktop\\Sempati\\Views\\Hayvanlar\\Index.cshtml",
       "TargetPath": "Views\\Hayvanlar\\Index.cshtml",
       "FileKind": "mvc"
@@ -20588,6 +20593,11 @@
     {
       "FilePath": "c:\\Users\\ezgih\\Desktop\\Sempati\\Views\\Iletisim\\Index.cshtml",
       "TargetPath": "Views\\Iletisim\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\ezgih\\Desktop\\Sempati\\Views\\Stok\\Olustur.cshtml",
+      "TargetPath": "Views\\Stok\\Olustur.cshtml",
       "FileKind": "mvc"
     },
     {

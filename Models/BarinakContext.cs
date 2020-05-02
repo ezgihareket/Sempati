@@ -19,6 +19,7 @@ namespace Sempati.Models
 
         public DbSet<hayvanlar> hayvanlar { get; set; }
         public DbSet<iletisim> iletisim { get; set; }
+        public DbSet<stok> stok { get; set; }
     }
 
 

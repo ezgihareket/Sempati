@@ -16,7 +16,6 @@ namespace Sempati.Models.Database
         public string renk { get; set; }
         public int tasma_no { get; set; }
         public int kafes_no { get; set; }
-        public string resim { get; set; }
         public int cins_id { get; set; }
     }
 }

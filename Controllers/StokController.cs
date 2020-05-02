@@ -3,59 +3,59 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Sempati.Filter;
 using Sempati.Models;
 using Sempati.Models.Database;
 
 namespace Sempati.Controllers
 {
-    public class HayvanlarController : Controller
+    [KullaniciFilter]
+    public class StokController : Controller
     {
-        BarinakContext _db;
-        public HayvanlarController(BarinakContext db)
+ BarinakContext _db;
+        public StokController(BarinakContext db)
         {
             _db = db;
         }
         public IActionResult Index()
         {
-            var list = _db.hayvanlar.ToList();
+            var list = _db.stok.ToList();
             return View(list);
         }
 
 
         public IActionResult Olustur()
         {
-            ViewBag.HayvanCinsleri = _db.hayvan_cinsleri.ToList();
-            return View(new hayvanlar());
+            ViewBag.HayvanYiyecekTipleri = _db.hayvan_yiyecek_tipleri.ToList();
+            return View(new stok());
         }
         public IActionResult Duzenle(int id)
         {
-            ViewBag.HayvanCinsleri = _db.hayvan_cinsleri.ToList();
-            var item =_db.hayvanlar.Find(id);
+            ViewBag.HayvanYiyecekTipleri = _db.hayvan_yiyecek_tipleri.ToList();
+            var item =_db.stok.Find(id);
             return View("Olustur",item);
         }
         
         public IActionResult Sil(int id)
         {
-            var item = _db.hayvanlar.Find(id);
-            _db.hayvanlar.Remove(item);
+            var item = _db.stok.Find(id);
+            _db.stok.Remove(item);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public IActionResult Kaydet(hayvanlar model)
+        public IActionResult Kaydet(stok model)
         {
             try
             {
-                if(model.hayvan_id==0){
-                     _db.hayvanlar.Add(model);
+                if(model.stok_id==0){
+                     _db.stok.Add(model);
                 }else{
-                    _db.hayvanlar.Update(model);
+                    _db.stok.Update(model);
                 }
                 _db.SaveChanges();//yapılan değişiklikleri kaydet
-                return Redirect("/hayvanlar/Index"); //Hayvanlar içindeki index.cshtml adresine yönlendir.
+                return Redirect("/stok/Index"); //Hayvanlar içindeki index.cshtml adresine yönlendir.
             }
             catch (System.Exception ex)
             {

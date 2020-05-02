@@ -53,6 +53,7 @@ namespace Sempati.Controllers
             _db.hayvan_cinsleri.Remove(item);
             _db.SaveChanges();
             return RedirectToAction("Index");
+            
         }
         [HttpPost]
         public IActionResult Kaydet(hayvan_cinsleri model)

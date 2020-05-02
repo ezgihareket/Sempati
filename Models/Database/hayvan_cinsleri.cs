@@ -9,6 +9,5 @@ namespace Sempati.Models.Database
         public string adi { get; set; }
         public string aciklama { get; set; }
 
-        public string resim { get; set; }
     }
 }
