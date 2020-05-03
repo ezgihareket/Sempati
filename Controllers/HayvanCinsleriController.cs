@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Sempati.Models;
 using Sempati.Models.Database;
 
@@ -12,9 +13,11 @@ namespace Sempati.Controllers
 {
     public class HayvanCinsleriController : Controller
     {
+        private readonly ILogger<HayvanCinsleriController> _logger;
         private readonly BarinakContext _db;
-        public HayvanCinsleriController(BarinakContext db)
+        public HayvanCinsleriController(ILogger<HayvanCinsleriController> logger, BarinakContext db)
         {
+            _logger = logger;
             _db = db;
         }
 

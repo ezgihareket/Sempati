@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Sempati.Models;
 using Sempati.Models.Database;
 
@@ -11,11 +12,18 @@ namespace Sempati.Controllers
 {
     public class HayvanYiyecekTipleriController : Controller
     {
-        BarinakContext _db;
-        public HayvanYiyecekTipleriController(BarinakContext db)
+         private readonly ILogger<HayvanYiyecekTipleriController> _logger;
+        private readonly BarinakContext _db;
+        public HayvanYiyecekTipleriController(ILogger<HayvanYiyecekTipleriController> logger, BarinakContext db)
         {
+            _logger = logger;
             _db = db;
         }
+        // BarinakContext _db;
+        // public HayvanYiyecekTipleriController(BarinakContext db)
+        // {
+        //     _db = db;
+        // }
         public IActionResult Index()
         {
             var list = _db.hayvan_yiyecek_tipleri.OrderBy(o=>o.yiyecek_id).ToList();

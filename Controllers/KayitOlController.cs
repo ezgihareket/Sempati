@@ -8,14 +8,17 @@ using Sempati.Models;
 using Sempati.Models.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace Sempati.Controllers
 {
     public class KayitOlController : Controller
     {
-        BarinakContext _db;
-        public KayitOlController(BarinakContext db)
+         private readonly ILogger<KayitOlController> _logger;
+        private readonly BarinakContext _db;
+        public KayitOlController(ILogger<KayitOlController> logger, BarinakContext db)
         {
+            _logger = logger;
             _db = db;
         }
         public IActionResult Index()

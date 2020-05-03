@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Sempati.Models;
 using Sempati.Models.Database;
 
@@ -13,9 +14,11 @@ namespace Sempati.Controllers
 {
     public class HayvanlarController : Controller
     {
-        BarinakContext _db;
-        public HayvanlarController(BarinakContext db)
+        private readonly ILogger<HayvanlarController> _logger;
+        private readonly BarinakContext _db;
+        public HayvanlarController(ILogger<HayvanlarController> logger, BarinakContext db)
         {
+            _logger = logger;
             _db = db;
         }
         public IActionResult Index()

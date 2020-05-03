@@ -11,12 +11,13 @@ namespace Sempati.Controllers
 {
     public class HomeController : Controller
     {
-        // private readonly ILogger<HomeController> _logger;
-
-        // public HomeController(ILogger<HomeController> logger)
-        // {
-        //     _logger = logger;
-        // }
+         private readonly ILogger<HomeController> _logger;
+        private readonly BarinakContext _db;
+        public HomeController(ILogger<HomeController> logger, BarinakContext db)
+        {
+            _logger = logger;
+            _db = db;
+        }
 
         public IActionResult Index()
         {

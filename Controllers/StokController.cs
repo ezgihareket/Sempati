@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Sempati.Filter;
 using Sempati.Models;
 using Sempati.Models.Database;
@@ -13,9 +14,11 @@ namespace Sempati.Controllers
     [KullaniciFilter]
     public class StokController : Controller
     {
- BarinakContext _db;
-        public StokController(BarinakContext db)
+        private readonly ILogger<StokController> _logger;
+        private readonly BarinakContext _db;
+        public StokController(ILogger<StokController> logger, BarinakContext db)
         {
+            _logger = logger;
             _db = db;
         }
         public IActionResult Index()
@@ -33,10 +36,10 @@ namespace Sempati.Controllers
         public IActionResult Duzenle(int id)
         {
             ViewBag.HayvanYiyecekTipleri = _db.hayvan_yiyecek_tipleri.ToList();
-            var item =_db.stok.Find(id);
-            return View("Olustur",item);
+            var item = _db.stok.Find(id);
+            return View("Olustur", item);
         }
-        
+
         public IActionResult Sil(int id)
         {
             var item = _db.stok.Find(id);
@@ -49,9 +52,12 @@ namespace Sempati.Controllers
         {
             try
             {
-                if(model.stok_id==0){
-                     _db.stok.Add(model);
-                }else{
+                if (model.stok_id == 0)
+                {
+                    _db.stok.Add(model);
+                }
+                else
+                {
                     _db.stok.Update(model);
                 }
                 _db.SaveChanges();//yapılan değişiklikleri kaydet
@@ -59,7 +65,7 @@ namespace Sempati.Controllers
             }
             catch (System.Exception ex)
             {
-                
+
                 throw;
             }
         }
