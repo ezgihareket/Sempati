@@ -14,37 +14,32 @@ namespace Sempati.Controllers
 {
     public class HayvanlarController : Controller
     {
-        private readonly ILogger<HayvanlarController> _logger;
-        private readonly BarinakContext _db;
-        public HayvanlarController(ILogger<HayvanlarController> logger, BarinakContext db)
-        {
-            _logger = logger;
-            _db = db;
-        }
+        private BarinakContext _db;
+     
         public IActionResult Index()
         {
-            var list = _db.hayvanlar.ToList();
+            var list = getDb().hayvanlar.ToList();
             return View(list);
         }
 
 
         public IActionResult Olustur()
         {
-            ViewBag.HayvanCinsleri = _db.hayvan_cinsleri.ToList();
+            ViewBag.HayvanCinsleri = getDb().hayvan_cinsleri.ToList();
             return View(new hayvanlar());
         }
         public IActionResult Duzenle(int id)
         {
-            ViewBag.HayvanCinsleri = _db.hayvan_cinsleri.ToList();
-            var item =_db.hayvanlar.Find(id);
+            ViewBag.HayvanCinsleri = getDb().hayvan_cinsleri.ToList();
+            var item =getDb().hayvanlar.Find(id);
             return View("Olustur",item);
         }
         
         public IActionResult Sil(int id)
         {
-            var item = _db.hayvanlar.Find(id);
-            _db.hayvanlar.Remove(item);
-            _db.SaveChanges();
+            var item = getDb().hayvanlar.Find(id);
+            getDb().hayvanlar.Remove(item);
+            getDb().SaveChanges();
             return RedirectToAction("Index");
         }
         [HttpPost]
@@ -53,11 +48,11 @@ namespace Sempati.Controllers
             try
             {
                 if(model.hayvan_id==0){
-                     _db.hayvanlar.Add(model);
+                     getDb().hayvanlar.Add(model);
                 }else{
-                    _db.hayvanlar.Update(model);
+                    getDb().hayvanlar.Update(model);
                 }
-                _db.SaveChanges();//yapılan değişiklikleri kaydet
+                getDb().SaveChanges();//yapılan değişiklikleri kaydet
                 return Redirect("/hayvanlar/Index"); //Hayvanlar içindeki index.cshtml adresine yönlendir.
             }
             catch (System.Exception ex)
@@ -65,6 +60,15 @@ namespace Sempati.Controllers
                 
                 throw;
             }
+        }
+        public BarinakContext getDb()
+        {
+            if (_db == null)
+            {
+                _db = BarinakContext.getContext();
+            }
+
+            return _db;
         }
     }
 }

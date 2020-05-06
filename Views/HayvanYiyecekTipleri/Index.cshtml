@@ -1,65 +1,70 @@
 ﻿@model List<Sempati.Models.Database.hayvan_yiyecek_tipleri>
-    @using Microsoft.AspNetCore.Http;
-    @{
+@using Microsoft.AspNetCore.Http;
+@{
     int? id = Context.Session.GetInt32("id");
     string admin = Context.Session.GetString("admin");
+}
+<style>
+
+    .table1 {
+        color: black;
     }
-    <style>
-        .table1 {
-            color: black;
-        }
 
-        h4 {
-            color: #47a447;
-        }
+    h4 {
+        color: #47a447;
+    }
 
-        .metin {
-            color: darkslategray;
-        }
+    .metin {
+        color: darkslategray;
+    }
 
-        .bas {
-            background-color: #85D5DF;
-        }
-    </style>
+    .bas {
+        background-color: #85D5DF;
+    }
+</style>
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <b style="float:left">
-                    <p>
-                        <h4>HAYVAN YIYECEK TIPLERI</h4>
-                    </p>
-                </b>
-                @if(admin == "true"){
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <b style="float:left">
+                <p>
+                    <h4>HAYVAN YIYECEK TIPLERI</h4>
+                </p>
+            </b>
+            @if (admin == "true")
+            {
                 <a style="float:right" class="btn btn-success" href="/hayvanyiyecektipleri/olustur">Oluştur</a>
-                }
-                <table class="table table-hover">
-            
-                    <thead class="table1">
-                        <tr class="bas">
-                            <th>yiyecek_id</th>
-                            <th>Aciklama</th>
-                            @if(admin == "true"){
+            }
+            <table class="table table-hover">
+
+                <thead class="table1">
+                    <tr class="bas">
+                        <th>yiyecek_id</th>
+                        <th>Aciklama</th>
+                        @if (admin == "true")
+                        {
                             <th>işlemler</th>
-                            }
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach(var item in Model){
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
                         <tr class="metin">
                             <td>@item.yiyecek_id</td>
                             <td>@item.aciklama</td>
-                            @if(admin == "true"){
-                            <td><a href="/hayvanyiyecektipleri/duzenle?id=@item.yiyecek_id" class="btn btn-info">Düzenle</a></td>
+                            @if (admin == "true")
+                            {
+                                <td><a href="/hayvanyiyecektipleri/duzenle?id=@item.yiyecek_id" class="btn btn-info">Düzenle</a></td>
                             }
                         </tr>
-                        }
-                    </tbody>
-                </table>
-
-            </div>
+                    }
+                </tbody>
+            </table>
 
         </div>
 
     </div>
+
+</div>

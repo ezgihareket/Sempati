@@ -14,13 +14,8 @@ namespace Sempati.Controllers
 {
     public class KayitOlController : Controller
     {
-         private readonly ILogger<KayitOlController> _logger;
-        private readonly BarinakContext _db;
-        public KayitOlController(ILogger<KayitOlController> logger, BarinakContext db)
-        {
-            _logger = logger;
-            _db = db;
-        }
+        private BarinakContext _db;
+      
         public IActionResult Index()
         {
             return View();
@@ -28,8 +23,8 @@ namespace Sempati.Controllers
         [HttpPost]
         public IActionResult Kaydet(Kullanici model)
         {
-            _db.kullanici.Add(model);//kullaniciyi kaydet
-            _db.SaveChanges();//yapılan değişiklikleri kaydet
+            getDb().kullanici.Add(model);//kullaniciyi kaydet
+            getDb().SaveChanges();//yapılan değişiklikleri kaydet
             return Redirect("/Barinak");// barinak adresine yönlendir.
         }
 
@@ -37,7 +32,7 @@ namespace Sempati.Controllers
         public async Task<IActionResult> GirisYap(string email, string sifre)
         {
             //Girilen emailve şifre ile kullanıcının email'i ve şifresi aynı ise Kullanıcı vardır
-            var kullanici = await _db.kullanici.FirstOrDefaultAsync(w => w.email == email && w.sifre == sifre);
+            var kullanici = await getDb().kullanici.FirstOrDefaultAsync(w => w.email == email && w.sifre == sifre);
             //Eşit değillerse kullanıcı null döner
             if (kullanici == null)
             {
@@ -62,6 +57,16 @@ namespace Sempati.Controllers
         {
             HttpContext.Session.Clear();
             return Redirect("/");//Anasayfaya yönlendirir
+        }
+
+        public BarinakContext getDb()
+        {
+            if (_db == null)
+            {
+                _db = BarinakContext.getContext();
+            }
+
+            return _db;
         }
     }
 }

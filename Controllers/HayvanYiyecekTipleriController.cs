@@ -12,21 +12,11 @@ namespace Sempati.Controllers
 {
     public class HayvanYiyecekTipleriController : Controller
     {
-         private readonly ILogger<HayvanYiyecekTipleriController> _logger;
-        private readonly BarinakContext _db;
-        public HayvanYiyecekTipleriController(ILogger<HayvanYiyecekTipleriController> logger, BarinakContext db)
-        {
-            _logger = logger;
-            _db = db;
-        }
-        // BarinakContext _db;
-        // public HayvanYiyecekTipleriController(BarinakContext db)
-        // {
-        //     _db = db;
-        // }
+        private BarinakContext _db;
+      
         public IActionResult Index()
         {
-            var list = _db.hayvan_yiyecek_tipleri.OrderBy(o=>o.yiyecek_id).ToList();
+            var list = getDb().hayvan_yiyecek_tipleri.OrderBy(o=>o.yiyecek_id).ToList();
             return View(list);
         }
 
@@ -39,16 +29,16 @@ namespace Sempati.Controllers
         //Girilen bilgileri düzenlememizi sağlar
         public IActionResult Duzenle(int id)
         {
-            var item =_db.hayvan_yiyecek_tipleri.Find(id);
+            var item =getDb().hayvan_yiyecek_tipleri.Find(id);
             return View("Olustur",item); //Oluştur.cshtml adresine yönlendirir
         }
 
         //Girilen bilgileri silmemizi sağlar
         public IActionResult Sil(int id)
         {
-             var item = _db.hayvan_yiyecek_tipleri.Find(id);
-            _db.hayvan_yiyecek_tipleri.Remove(item);
-            _db.SaveChanges();
+             var item = getDb().hayvan_yiyecek_tipleri.Find(id);
+            getDb().hayvan_yiyecek_tipleri.Remove(item);
+            getDb().SaveChanges();
             return RedirectToAction("Index");  //index.cshtml adresine yönlendirir
         }
         [HttpPost]
@@ -57,12 +47,12 @@ namespace Sempati.Controllers
             try
             {
                 if(model.yiyecek_id==0){
-                    _db.hayvan_yiyecek_tipleri.Add(model);
+                    getDb().hayvan_yiyecek_tipleri.Add(model);
                 }else{
-                     _db.hayvan_yiyecek_tipleri.Update(model);
+                     getDb().hayvan_yiyecek_tipleri.Update(model);
                 }
                
-                _db.SaveChanges();//yapılan değişiklikleri kaydet
+                getDb().SaveChanges();//yapılan değişiklikleri kaydet
                 return Redirect("/hayvanyiyecektipleri/Index");//HayvanYiyecekTipleri içindeki index.cshtml adresine yönlendir.
             }
             catch (System.Exception ex)
@@ -70,6 +60,15 @@ namespace Sempati.Controllers
                 
                 throw;
             }
+        }
+        public BarinakContext getDb()
+        {
+            if (_db == null)
+            {
+                _db = BarinakContext.getContext();
+            }
+
+            return _db;
         }
     }
 }

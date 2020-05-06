@@ -13,24 +13,19 @@ namespace Sempati.Controllers
 {
     public class HayvanCinsleriController : Controller
     {
-        private readonly ILogger<HayvanCinsleriController> _logger;
-        private readonly BarinakContext _db;
-        public HayvanCinsleriController(ILogger<HayvanCinsleriController> logger, BarinakContext db)
-        {
-            _logger = logger;
-            _db = db;
-        }
+        private BarinakContext _db;
+      
 
 
         public async Task<IActionResult> Index(string searchString)
         {
 
-            var cins = from c in _db.hayvan_cinsleri
+            var cins = from c in getDb().hayvan_cinsleri
                        select c;
 
             if (String.IsNullOrEmpty(searchString))
             {
-                var list = _db.hayvan_cinsleri.OrderBy(o => o.cins_id).ToList();
+                var list = getDb().hayvan_cinsleri.OrderBy(o => o.cins_id).ToList();
                 return View(list);
                
             }else{
@@ -47,14 +42,14 @@ namespace Sempati.Controllers
         }
         public IActionResult Duzenle(int id)
         {
-            var item = _db.hayvan_cinsleri.Find(id);
+            var item = getDb().hayvan_cinsleri.Find(id);
             return View("Olustur", item);
         }
         public IActionResult Sil(int id)
         {
-            var item = _db.hayvan_cinsleri.Find(id);
-            _db.hayvan_cinsleri.Remove(item);
-            _db.SaveChanges();
+            var item = getDb().hayvan_cinsleri.Find(id);
+            getDb().hayvan_cinsleri.Remove(item);
+            getDb().SaveChanges();
             return RedirectToAction("Index");
             
         }
@@ -65,13 +60,13 @@ namespace Sempati.Controllers
             {
                 if (model.cins_id == 0)
                 {
-                    _db.hayvan_cinsleri.Add(model);//kullaniciyi kaydet
+                    getDb().hayvan_cinsleri.Add(model);//kullaniciyi kaydet
                 }
                 else
                 {
-                    _db.hayvan_cinsleri.Update(model);//kullaniciyi 
+                    getDb().hayvan_cinsleri.Update(model);//kullaniciyi 
                 }
-                _db.SaveChanges();//yapılan değişiklikleri kaydet
+                getDb().SaveChanges();//yapılan değişiklikleri kaydet
                 return Redirect("/hayvancinsleri/Index");// barinak adresine yönlendir.
             }
             catch (System.Exception ex)
@@ -79,6 +74,15 @@ namespace Sempati.Controllers
 
                 throw;
             }
+        }
+        public BarinakContext getDb()
+        {
+            if (_db == null)
+            {
+                _db = BarinakContext.getContext();
+            }
+
+            return _db;
         }
     }
 }

@@ -1,51 +1,54 @@
 ﻿@model List<Sempati.Models.Database.stok>
-    @using Microsoft.AspNetCore.Http;
-    @{
+@using Microsoft.AspNetCore.Http;
+@{
     int? id = Context.Session.GetInt32("id");
     string admin = Context.Session.GetString("admin");
+}
+<style>
+
+    .table1 {
+        color: black;
     }
-    <style>
-        .table1 {
-            color: black;
-        }
 
-        h4 {
-            color: #47a447;
-        }
+    h4 {
+        color: #47a447;
+    }
 
-        .metin {
-            color: darkslategray;
-        }
+    .metin {
+        color: darkslategray;
+    }
 
-        .bas {
-            background-color: #85D5DF;
-        }
-    </style>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <b style="float:left">
-                    <p>
-                        <h4>STOK</h4>
-                    </p>
-                </b>
-                @if(admin == "true"){
+    .bas {
+        background-color: #85D5DF;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <b style="float:left">
+                <p>
+                    <h4>STOK</h4>
+                </p>
+            </b>
+            @if (admin == "true")
+            {
                 <a style="float:right" class="btn btn-success" href="/stok/olustur">Oluştur</a>
-                }
-                <table class="table table-hover">
-            
-                    <thead class="table1">
-                        <tr class="bas">
-                            <th>stok_id</th>
-                            <th>adet</th>
-                            <th>yiyecek</th>
-                            <th>yiyecek_id</th>
-                             <th>işlemler</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach(var item in Model){
+            }
+            <table class="table table-hover">
+
+                <thead class="table1">
+                    <tr class="bas">
+                        <th>stok_id</th>
+                        <th>adet</th>
+                        <th>yiyecek</th>
+                        <th>yiyecek_id</th>
+                        <th>işlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
                         <tr class="metin">
                             <td>@item.stok_id</td>
                             <td>@item.adet</td>
@@ -53,12 +56,12 @@
                             <td>@item.yiyecek_id</td>
                             <td><a href="/stok/duzenle?id=@item.stok_id" class="btn btn-info">Düzenle</a></td>
                         </tr>
-                        }
-                    </tbody>
-                </table>
-
-            </div>
+                    }
+                </tbody>
+            </table>
 
         </div>
 
     </div>
+
+</div>

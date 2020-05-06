@@ -12,13 +12,8 @@ namespace Sempati.Controllers
 {
     public class IletisimController : Controller
     {
-         private readonly ILogger<IletisimController> _logger;
-        private readonly BarinakContext _db;
-        public IletisimController(ILogger<IletisimController> logger, BarinakContext db)
-        {
-            _logger = logger;
-            _db = db;
-        }
+        private BarinakContext _db;
+      
         public IActionResult Index()
         {
             return View();
@@ -28,10 +23,19 @@ namespace Sempati.Controllers
         [HttpPost]
         public IActionResult Kaydet(iletisim model)
         {
-                _db.iletisim.Add(model);
-                _db.SaveChanges();//yapılan değişiklikleri kaydet
+                getDb().iletisim.Add(model);
+            getDb().SaveChanges();//yapılan değişiklikleri kaydet
                 return Redirect("/iletisim");//İletişim sayfasına yönlendir
             
+        }
+        public BarinakContext getDb()
+        {
+            if (_db == null)
+            {
+                _db = BarinakContext.getContext();
+            }
+
+            return _db;
         }
     }
 }
