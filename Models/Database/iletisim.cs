@@ -7,5 +7,6 @@ namespace Sempati.Models.Database
         public int telefon { get; set; }
         public string email { get; set; }
         public string mesaj { get; set; }
+        public bool imza { get; set; }
     }
 }

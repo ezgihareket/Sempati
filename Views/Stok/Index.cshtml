@@ -43,19 +43,24 @@
                         <th>adet</th>
                         <th>yiyecek</th>
                         <th>yiyecek_id</th>
-                        <th>işlemler</th>
-                    </tr>
+                        @if (admin == "true")
+                        {
+                            <th>işlemler</th>
+                        }
+                        </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr class="metin">
-                            <td>@item.stok_id</td>
-                            <td>@item.adet</td>
-                            <td>@item.yiyecek</td>
-                            <td>@item.yiyecek_id</td>
+                    <tr class="metin">
+                        <td>@item.stok_id</td>
+                        <td>@item.adet</td>
+                        <td>@item.yiyecek</td>
+                        <td>@item.yiyecek_id</td>
+                        @if (admin == "true") { 
                             <td><a href="/stok/duzenle?id=@item.stok_id" class="btn btn-info">Düzenle</a></td>
-                        </tr>
+                            }
+                    </tr>
                     }
                 </tbody>
             </table>

@@ -29,15 +29,15 @@
                             <div class="col-md-6 appear-animation fadeIn appear-animation-visible" data-appear-animation="fadeIn">
 
                                 <h2 class="mb-sm mt-sm">İLETİŞİM FORMU</h2>
-                                 <hr/> 
-                                <form method="post" action="/iletisim/kaydet" class="FormAlani">
+                                <hr />
+                                <form method="post" action="/iletisim/Gonder" id="mailform" class="FormAlani">
                                     <div class="col-md-12  margin-bottom">
                                         <div class="col-md-12 margin-bottom">
                                             Adı Soyadı (*):
                                             <div class="clearfix5"></div>
                                             <b>
                                                 <input required name="isim" type="text" maxlength="70"
-                                                    class="form-control">
+                                                       class="form-control">
                                             </b>
                                         </div>
                                         <div class="col-md-12 margin-bottom">
@@ -45,7 +45,7 @@
                                             <div class="clearfix5"></div>
                                             <b>
                                                 <input required name="telefon" type="text" maxlength="70"
-                                                    class="form-control">
+                                                       class="form-control">
                                             </b>
                                         </div>
 
@@ -59,7 +59,10 @@
                                             Mesaj (*):
                                             <textarea required name="mesaj" type="textarea" maxlength="70" class="form-control"></textarea>
                                         </div>
-
+                                        <div class="col-md-12 margin-bottom">
+                                            <label>İmzalamak için tıkla</label>
+                                            @Html.CheckBox("imza", false)
+                                        </div>
                                         <div class="col-md-12 margin-bottom">
                                             <input type="submit" value="Gönder" class="btn btn-primary">
                                         </div>
@@ -71,7 +74,7 @@
 
                                 <div class="IletisimBilgi">
                                     <h2 class="mb-sm mt-sm">İLETİŞİM BİLGİLERİ</h2>
-                                    <hr/>  
+                                    <hr />
                                     <p>Adres: İnönü Üniversitesi - Malatya</p>
 
                                     <p>Telefon: 0212 444 0 444</p>
@@ -92,5 +95,24 @@
     <!-- <div id="ctl00_cph1_orta">
         <!-- OrtaAlan1 Son -->
 </div>
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-</div>
+    <script>
+        $('#mailform').on('submit', (e) => {
+            e.preventDefault();
+            const body = new FormData(e.currentTarget);
+            fetch(e.currentTarget.action, {
+                method: 'post',
+                body
+            }).then(res => res.json()).then(res => {
+                Swal.fire(
+                    'Gönderildi!',
+                    'Mail gönderilmesi başarıyla tamamlandı.',
+                    'success'
+                )
+            });
+        })
+
+    </script>
+}

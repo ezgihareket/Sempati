@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="~/style.css?Tema=">
 
     <style>
+
         #formara {
             position: relative;
         }
@@ -42,43 +43,50 @@
                     <div class="header-top htop_11" style="background-color: #85D5DF; color: #FFFFFF">
                         <div class="container">
 
-                            @if(id.HasValue){
-                            <form id="formara" asp-controller="hayvancinsleri" asp-action="Index" method="get">
-                                <div class="col-md-11">
-                                    <input class="form-control mr-sm-2" name="SearchString" type="search" placeholder="Ara" aria-label="Search">
-                                </div>
-                                <div class="col-md-1">
-                                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Ara</button>
-                                </div>
-                            </form>
-                            } else{
-                            <div class="header-row membership">
-                                <div id="ctl00_Header_ctl02_UyeGiris" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_Header_ctl02_Giris&#39;)">
+                            @if (id.HasValue)
+                            {
+                                <form id="formara" asp-controller="hayvancinsleri" asp-action="Index" method="get">
+                                    <div class="col-md-11">
+                                        <input class="form-control mr-sm-2" name="SearchString" type="search" placeholder="Ara" aria-label="Search">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button class="btn btn-dark my-2 my-sm-0" type="submit">Ara</button>
+                                    </div>
+                                </form>
+                            }
+                            else
+                            {
+                                <div class="header-row membership">
+                                    <div id="ctl00_Header_ctl02_UyeGiris" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_Header_ctl02_Giris&#39;)">
 
-                                    <form method="POST" action="/kayitol/girisyap">
-                                        <div class="Ust_Uyelik" id="Uyelik_logo_yani">
-                                            <div class="col-md-12">
-                                                <div class="col-md-1">
-                                                </div>
-                                                <div class="col-md-3 mobile-hide">
-                                                    <input name="email" type="text" id="ctl00_Header_ctl02_uyeKullaniciAdi" class="form-control" placeholder="Kullanıcı Adı" />
-                                                </div>
-                                                <div class="col-md-3 mobile-hide">
-                                                    <input name="sifre" type="password" id="ctl00_Header_ctl02_uyeSifre" class="form-control" autocomplete="off" placeholder="Şifre" />
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <input type="submit" value="Giriş" id="ctl00_Header_ctl02_Giris" class="btn btn-primary mobile-hide" />
-                                                    <a href="/members/login" class="btn btn-primary mobile-show">Giriş
-                                                        Yap</a>
-                                                    <a href="/kayitol" class="btn btn-primary">Kayıt Ol</a>
-                                                    <a href="/members/forgot-password" class="btn btn-primary">Şifremi
-                                                        Unuttum</a>
+                                        <form method="POST" action="/kayitol/girisyap">
+                                            <div class="Ust_Uyelik" id="Uyelik_logo_yani">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-1">
+                                                    </div>
+                                                    <div class="col-md-3 mobile-hide">
+                                                        <input name="email" type="text" id="ctl00_Header_ctl02_uyeKullaniciAdi" class="form-control" placeholder="Kullanıcı Adı" />
+                                                    </div>
+                                                    <div class="col-md-3 mobile-hide">
+                                                        <input name="sifre" type="password" id="ctl00_Header_ctl02_uyeSifre" class="form-control" autocomplete="off" placeholder="Şifre" />
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <input type="submit" value="Giriş" id="ctl00_Header_ctl02_Giris" class="btn btn-primary mobile-hide" />
+                                                        <a href="/members/login" class="btn btn-primary mobile-show">
+                                                            Giriş
+                                                            Yap
+                                                        </a>
+                                                        <a href="/kayitol" class="btn btn-primary">Kayıt Ol</a>
+                                                        <a href="/members/forgot-password" class="btn btn-primary">
+                                                            Şifremi
+                                                            Unuttum
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
                             }
                         </div>
                     </div>
@@ -91,8 +99,8 @@
                                             <tr>
                                                 <td><img alt="Logo" src="~/site_document/files/resim/logo.png" style="height: 80px; margin-right: 10px; width: 80px;" /></td>
                                                 <td>
-                                                    <span style="font-size:24px;"><span
-                                                            style="color:#1C2125;">SemPati</span>
+                                                    <span style="font-size:24px;">
+                                                        <span style="color:#1C2125;">SemPati</span>
                                                     </span>
                                                 </td>
                                             </tr>
@@ -105,8 +113,8 @@
                                 <div class="header-row">
                                     <div class="header-nav">
                                         @* <button class="btn header-btn-collapse-nav" type="button" data-toggle="collapse" data-target=".header-nav-main">
-                                            <i class="fa fa-bars"></i>
-                                        </button> *@
+                                                <i class="fa fa-bars"></i>
+                                            </button> *@
                                         <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
                                             <nav>
                                                 <ul class="nav nav-pills" id="mainNav">
@@ -119,26 +127,30 @@
                                                         <a href="/hakkimizda" id="mn_290" class="menu_tur_11">Hakkımızda</a>
                                                     </li>
                                                     <li class="dropdown">
-                                                        <a href="#tablolar" id="mn_289" class="menu_tur_11">Tablolar</a> @if(id.HasValue){
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="/hayvanlar" id="hayvanlar">Hayvanlar</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/hayvancinsleri" id="hayvancinsleri">Hayvan
-                                                                    Cinsleri</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/hayvanhastaliklari" id="hayvanhastaliklari">Hayvan Hastalıkları</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/hayvanyiyecektipleri" id="hayvanyiyecektipleri">Hayvan Yiyecek Tipleri</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/stok" id="stok">Stok</a>
-                                                            </li>
+                                                        <a href="#tablolar" id="mn_289" class="menu_tur_11">Tablolar</a> @if (id.HasValue)
+                                                        {
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a href="/hayvanlar" id="hayvanlar">Hayvanlar</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/hayvancinsleri" id="hayvancinsleri">
+                                                                        Hayvan
+                                                                        Cinsleri
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/hayvanhastaliklari" id="hayvanhastaliklari">Hayvan Hastalıkları</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/hayvanyiyecektipleri" id="hayvanyiyecektipleri">Hayvan Yiyecek Tipleri</a>
+                                                                </li>
 
-                                                        </ul>
+                                                                @*<li>
+                                                                    <a href="/stok" id="stok">Stok</a>
+                                                                </li>*@
+
+                                                            </ul>
                                                         }
                                                     </li>
 
@@ -150,22 +162,24 @@
                                                         <a href="/iletisim" id="mn_3" class="menu_tur_11">Iletişim</a>
                                                     </li>
 
-                                                    @if(id.HasValue){
-                                                    <li>
-                                                        <a href="/stok" id="mn_289" class="menu_tur_11">Stok</a>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a href="/#" id="mn_291" class="dropdown-toggle menu_tur_11"><span
-                                                                data-hover="Hesap">Hesap</span></a>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a id="mn_293">@Context.Session.GetString("kullanici_adi")</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="/kayitol/cikisyap" id="mn_293">Çıkış Yap</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
+                                                    @if (id.HasValue)
+                                                    {
+                                                        <li>
+                                                            <a href="/stok" id="mn_289" class="menu_tur_11">Stok</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a href="/#" id="mn_291" class="dropdown-toggle menu_tur_11">
+                                                                <span data-hover="Hesap">Hesap</span>
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a id="mn_293">@Context.Session.GetString("kullanici_adi")</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/kayitol/cikisyap" id="mn_293">Çıkış Yap</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
                                                     }
                                                 </ul>
                                             </nav>
